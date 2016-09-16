@@ -8,6 +8,7 @@ public class Numero {
 		this.n = n;
 	}
 
+	// Getters y Setters
 	public int getN() {
 		return n;
 	}
@@ -15,30 +16,36 @@ public class Numero {
 	public void setN(int n) {
 		this.n = n;
 	}
+	// ------------------------------------
 
 	@Override
 	public String toString() {
 		return "Numero [n=" + n + "]";
 	}
 
-	public int sumar(int n1) {
-		return this.n + n1;
+	// SUMA
+	public int sumar(int n2) {
+		return this.n + n2;
 	}
 
-	public int multiplicar(int n1) {
-		return this.n * n1;
+	// MULTIPLICACION
+	public int multiplicar(int n2) {
+		return this.n * n2;
 	}
 
+	// PARIDAD
 	public boolean esPar() {
 		int resto = this.n % 2;
-		if (resto == 0)
+		if (resto == 0) {
 			return true;
-		else
+		} else {
 			return false;
+		}
 	}
 
+	// PRIMO
 	public boolean esPrimo() {
-                boolean primo = true;
+		boolean primo = true;
 		int i = 2;
 		double resto;
 
@@ -54,41 +61,29 @@ public class Numero {
 		}
 		return primo;
 	}
-	
-	// PRIMOS MELLIZOS
-	public boolean esPrimoMellizo(int primo2) {
-		boolean primo_mellizo = false;
-		int n1 = this.n;
-		int n2 = primo2;
-		if (this.esPrimo() == true) {
-			this.setN(n2);
-			if (this.esPrimo() == true) {
-				if (n1 - n2 == 2 || n2 - n1 == 2) {
-					primo_mellizo = true;
-				}
-			}
-		}
-		return primo_mellizo;
-	}
 
+	// A STRING
 	public String convertirAString() {
 		String cadena;
 		cadena = String.valueOf(this.n);
 		return cadena;
 	}
 
+	// A DOUBLE
 	public double convertirADouble() {
 		double numero;
 		numero = Double.parseDouble(this.convertirAString());
 		return numero;
 	}
 
+	// POTENCIA
 	public double calcularPotencia(int exp) {
 		double potencia;
 		potencia = Math.pow(this.n, exp);
 		return potencia;
 	}
 
+	// A BASE 2
 	public String pasarBase2() {
 		int resto;
 		String numeroBase2 = "";
@@ -101,6 +96,7 @@ public class Numero {
 		return numeroBase2;
 	}
 
+	// FACTORIAL
 	public int calcularFactorial() {
 		int n, factorial;
 		n = this.n;
@@ -118,12 +114,13 @@ public class Numero {
 		}
 		return factorial;
 	}
-	
-	public double numeroCombinatorio(int n1) {
-		int n = this.n;
-		int k = n1;
 
-		if (n > 0 && k > 0 && n>k) {
+	// COMBINATORIO
+	public double numeroCombinatorio(int n3) {
+		int n = this.n;
+		int k = n3;
+
+		if (n > 0 && k > 0 && n > k) {
 
 			int nFact = this.calcularFactorial();
 
@@ -139,9 +136,25 @@ public class Numero {
 				combinatorio = nFact / (kFact * restaFact);
 			}
 
-			return combinatorio;			
+			return combinatorio;
+		} else
+			return -1;
+
+	}
+
+	// PRIMOS MELLIZOS
+	public boolean esPrimoMellizo(int primo2) {
+		boolean primo_mellizo = false;
+		int n1 = this.n;
+		int n2 = primo2;
+		if (this.esPrimo() == true) {
+			this.setN(n2);
+			if (this.esPrimo() == true) {
+				if (n1 - n2 == 2 || n2 - n1 == 2) {
+					primo_mellizo = true;
+				}
+			}
 		}
-		else return -1;
-		
+		return primo_mellizo;
 	}
 }
