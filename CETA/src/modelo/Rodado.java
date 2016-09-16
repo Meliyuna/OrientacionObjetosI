@@ -1,4 +1,6 @@
 package modelo;
+
+/* IMPORT */
 import modelo.Funciones;
 
 public class Rodado {
@@ -50,13 +52,13 @@ public class Rodado {
 	}	
 	
 	//Formato del dominio = AAA 000
-	public boolean validarDominio (String dominio){
-		String str1 = dominio.substring(0, 2);
-		String str2 = dominio.substring(4,6);
+	public boolean validarDominio (String dominio) throws Exception{
+		String str1 = dominio.substring(0, 3);
+		String str2 = dominio.substring(4,7);
 		
 		if (Funciones.esCadenaLetras(str1) && Funciones.esCadenaNumeros(str2))
 			return true;
-		else return false;
+		else throw new Exception ("Error: El dominio no es valido");
 	}
 
 }

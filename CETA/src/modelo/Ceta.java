@@ -1,6 +1,10 @@
 package modelo;
+
+/* IMPORT */
+
 import java.util.GregorianCalendar;
 import modelo.Contribuyentes;
+import modelo.Funciones;
 
 
 public class Ceta {
@@ -73,8 +77,26 @@ public class Ceta {
 		this.firmaComprador = firmaComprador;
 	}
 	
+	public boolean compararCompradorVendedor () throws Exception{
+		Contribuyentes comprador = this.comprador;
+		Contribuyentes vendedor = this.vendedor;
+		
+		if (comprador == vendedor) throw new Exception ("Error: el comprador y el vendedor son iguales ¬¬");
+		else return false;
+		
+	}
 	
-	
+	public boolean validarFecha () throws Exception {
+		String fecha = Funciones.traerFechaCorta(this.fecha);
+		String fechaActual;
+		
+		GregorianCalendar fecha1 = new GregorianCalendar();
+		
+		fechaActual = Funciones.traerFechaCorta(fecha1);
+		
+		if (fecha.compareTo(fechaActual)>0) throw new Exception ("Error: la fecha es posterior a la fecha actual");
+		else return true;
+	}
 	
 	
 	

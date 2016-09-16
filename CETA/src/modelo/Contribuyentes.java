@@ -69,22 +69,25 @@ public class Contribuyentes {
 		this.cuil = cuil;
 	}
 
-	public boolean validarSexo(char sexo) {
-		if (sexo == 'M' || sexo == 'F') {
+	public boolean validarSexo(char sexo) throws Exception {
+	
+		if (sexo != 'M' && sexo != 'F') throw new Exception ("Error: Sexo ingresado no es valido");
+		else
 			return true;
-		} else
-			return false;
 	}
 
-	public boolean validarCuil (String cuil){
+	public boolean validarCuil (String cuil) throws Exception {
 		
-		String[] str = {" "};
-		int[] array1 = {0};
-		int[] array2 = {0};
+		
+		int[] array1 = {0,0,0,0,0,0,0,0,0,0,0};
+		int[] array2 = {0,0,0,0,0,0,0,0,0,0,0};
+		
 		
 		for (int i=0; i < cuil.length(); i++){
-			str[i] = cuil.substring(i, i+1);
-			array1 [i] = Integer.parseInt(str[i]);
+			
+			if (cuil.charAt(i)!= '-')
+				array1 [i] = Character.getNumericValue(cuil.charAt(i));
+			
 		}
 		
 		array2[0] = array1[0]*5;
@@ -115,7 +118,7 @@ public class Contribuyentes {
 		boolean valido;
 		
 		if (codigo == array1[10]) valido = true;
-		else valido = false;
+		else throw new Exception ("Error: El cuil ingresado no es valido");
 		
 		return valido;
 		
