@@ -38,17 +38,37 @@ public class Numero {
 	}
 
 	public boolean esPrimo() {
+                boolean primo = true;
+		int i = 2;
+		double resto;
 
-		int resto2 = this.n % 2;
-		int resto3 = this.n % 3;
-		int resto5 = this.n % 5;
-		int resto7 = this.n % 7;
-
-		if ((resto2 == 0 || resto3 == 0 || resto5 == 0 || resto7 == 0)
-				&& (this.n != 2 && this.n != 3 && this.n != 5 && this.n != 7))
-			return false;
-		else
-			return true;
+		while (primo == true && i < n) {
+			resto = n % i;
+			if (resto == 0) {
+				primo = false;
+			}
+			i++;
+		}
+		if (n == 1) {
+			primo = false;
+		}
+		return primo;
+	}
+	
+	// PRIMOS MELLIZOS
+	public boolean esPrimoMellizo(int primo2) {
+		boolean primo_mellizo = false;
+		int n1 = this.n;
+		int n2 = primo2;
+		if (this.esPrimo() == true) {
+			this.setN(n2);
+			if (this.esPrimo() == true) {
+				if (n1 - n2 == 2 || n2 - n1 == 2) {
+					primo_mellizo = true;
+				}
+			}
+		}
+		return primo_mellizo;
 	}
 
 	public String convertirAString() {
