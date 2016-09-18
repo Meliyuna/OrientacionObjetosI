@@ -37,7 +37,7 @@ public class TestFunciones {
 		/* Traer Fecha Corta y Hora en formato String */
 		System.out.println(Funciones.traerFechaCortaHora(fecha));
 		
-		/* Traer Fecha Proxima */
+		/* Traer Fecha Proximo */
 		int cantdias = 10;
 		System.out.println(Funciones.traerFechaProximo(fecha, cantdias));
 		

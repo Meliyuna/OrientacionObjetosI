@@ -303,4 +303,11 @@ public class Funciones {
 		return flag;
 	}
 
+	// ------------------------------------
+
+	// AGREGADOS
+	public static double convertirADouble(int n) {
+		return ((double) n);
+	}
+
 }
