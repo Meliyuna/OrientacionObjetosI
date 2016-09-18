@@ -8,17 +8,17 @@ public class Rodado {
 	private String dominio;
 	private int modelo;
 	private String marca;
-	
-	//Constructor
+
+	// Constructor
 	public Rodado(int idRodado, String dominio, int modelo, String marca) {
-	
+
 		this.idRodado = idRodado;
 		this.dominio = dominio;
 		this.modelo = modelo;
 		this.marca = marca;
 	}
-	
-	//Getters y Setters
+
+	// Getters y Setters
 	public int getIdRodado() {
 		return idRodado;
 	}
@@ -49,16 +49,17 @@ public class Rodado {
 
 	public void setMarca(String marca) {
 		this.marca = marca;
-	}	
-	
-	//Formato del dominio = AAA 000
-	public boolean validarDominio (String dominio) throws Exception{
+	}
+
+	// Formato del dominio = AAA 000
+	public boolean validarDominio(String dominio) throws Exception {
 		String str1 = dominio.substring(0, 3);
-		String str2 = dominio.substring(4,7);
-		
+		String str2 = dominio.substring(4, 7);
+
 		if (Funciones.esCadenaLetras(str1) && Funciones.esCadenaNumeros(str2))
 			return true;
-		else throw new Exception ("Error: El dominio no es valido");
+		else
+			throw new Exception("Error: El dominio no es valido");
 	}
 
 }

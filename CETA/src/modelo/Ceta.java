@@ -1,11 +1,9 @@
 package modelo;
 
 /* IMPORT */
-
 import java.util.GregorianCalendar;
 import modelo.Contribuyentes;
 import modelo.Funciones;
-
 
 public class Ceta {
 	private int idCeta;
@@ -14,12 +12,11 @@ public class Ceta {
 	private Contribuyentes comprador;
 	private double valorDeTransferencia;
 	private boolean firmaComprador;
-	
-	//Constructor
-	public Ceta(int idCeta, GregorianCalendar fecha, Contribuyentes vendedor,
-			Contribuyentes comprador, double valorDeTransferencia,
-			boolean firmaComprador) {
-		
+
+	// Constructor
+	public Ceta(int idCeta, GregorianCalendar fecha, Contribuyentes vendedor, Contribuyentes comprador,
+			double valorDeTransferencia, boolean firmaComprador) {
+
 		this.idCeta = idCeta;
 		this.fecha = fecha;
 		this.vendedor = vendedor;
@@ -27,8 +24,8 @@ public class Ceta {
 		this.valorDeTransferencia = valorDeTransferencia;
 		this.firmaComprador = firmaComprador;
 	}
-	
-	//Getters y Setters
+
+	// Getters y Setters
 	public int getIdCeta() {
 		return idCeta;
 	}
@@ -76,29 +73,30 @@ public class Ceta {
 	public void setFirmaComprador(boolean firmaComprador) {
 		this.firmaComprador = firmaComprador;
 	}
-	
-	public boolean compararCompradorVendedor () throws Exception{
+
+	public boolean compararCompradorVendedor() throws Exception {
 		Contribuyentes comprador = this.comprador;
 		Contribuyentes vendedor = this.vendedor;
-		
-		if (comprador == vendedor) throw new Exception ("Error: el comprador y el vendedor son iguales Â¬Â¬");
-		else return false;
-		
+
+		if (comprador == vendedor)
+			throw new Exception("Error: el comprador y el vendedor son iguales ¬¬");
+		else
+			return false;
+
 	}
-	
-	public boolean validarFecha () throws Exception {
+
+	public boolean validarFecha() throws Exception {
 		String fecha = Funciones.traerFechaCorta(this.fecha);
 		String fechaActual;
-		
+
 		GregorianCalendar fecha1 = new GregorianCalendar();
-		
+
 		fechaActual = Funciones.traerFechaCorta(fecha1);
-		
-		if (fecha.compareTo(fechaActual)>0) throw new Exception ("Error: la fecha es posterior a la fecha actual");
-		else return true;
+
+		if (fecha.compareTo(fechaActual) > 0)
+			throw new Exception("Error: la fecha es posterior a la fecha actual");
+		else
+			return true;
 	}
-	
-	
-	
 
 }
