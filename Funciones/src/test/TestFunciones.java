@@ -11,42 +11,45 @@ public class TestFunciones {
 		GregorianCalendar fecha = new GregorianCalendar ();
 		GregorianCalendar fecha1 = new GregorianCalendar ();
 		
+		/* Calculo de año bisiesto */
+		int anio = 2100;
+		System.out.println("Es Bisiesto: "+Funciones.esBisiesto(anio));
+		
 		/* Mostrar Fecha Actual */
 		System.out.println(Funciones.traerAnio(fecha));
 		System.out.println(Funciones.traerMes(fecha));
 		System.out.println(Funciones.traerDia(fecha));
-		
-		/* Calculo de aÃ±o bisiesto */
-		int anio = 2100;
-		System.out.println("Es Bisiesto: "+Funciones.esBisiesto(anio));
+				
 		
 		/* Verificar fecha ingresada */
-		
 		System.out.println("Es fecha valida: "+Funciones.esFechaValida(2015, 4, 28));
 		
-		/* Mostrar Fecha */		
+		/* Traer Fecha */		
 		System.out.println(Funciones.traerFecha(2016, 8, 30));
 		
-		/* Traer Fecha en ingresando String */
+		/* Traer Fecha ingresando String */
 		String fechaS = "10/04/2010";
 		System.out.println(Funciones.traerFecha(fechaS));
 		
 		/* Traer Fecha Corta en formato String */
 		System.out.println(Funciones.traerFechaCorta(fecha));
 		
-		/* Traer Fecha Corta mas Hora en formato String */
+		/* Traer Fecha Corta y Hora en formato String */
 		System.out.println(Funciones.traerFechaCortaHora(fecha));
 		
 		/* Traer Fecha Proxima */
 		int cantdias = 10;
 		System.out.println(Funciones.traerFechaProximo(fecha, cantdias));
 		
-		/* Traer dia de la semana en formato String */
-		System.out.println(Funciones.traerDiaDeLaSemana(fecha));
-		
 		/* Ver si es dia habil */
 		System.out.print("Es dia habil: ");
 		System.out.println(Funciones.esDiaHabil(fecha));
+		
+		/* Traer dia de la semana en formato String */
+		System.out.println(Funciones.traerDiaDeLaSemana(fecha));
+		
+		/* Traer mes en letras */
+		System.out.println(Funciones.traerMesEnLetras(fecha));
 		
 		/* Mostrar fecha larga */
 		System.out.println(Funciones.traerFechaLarga(fecha));
