@@ -49,8 +49,7 @@ public class Carrito {
 	
 	public boolean agregarItem (Producto producto, int cantidad){
 		boolean agregado = false;
-		boolean encontrado = false;
-		
+		boolean encontrado = false;		
 		
 		for (ItemCarrito i: lstItem){
 			if (producto.getIdProducto() == i.getProducto().getIdProducto()){
@@ -66,6 +65,40 @@ public class Carrito {
 		}
 		
 		return agregado;
+	}
+	
+	public boolean eliminarItem (Producto producto, int cantidad) throws Exception {
+		boolean borrado = false;
+		for (ItemCarrito item: lstItem){
+			if (item.getProducto() == producto){
+				if (item.getCantidad() > cantidad){
+					item.setCantidad(item.getCantidad() - cantidad);
+				}
+				else if (item.getCantidad() == cantidad){
+					borrado = lstItem.remove(item);
+				}
+			}
+			else throw new Exception ("Error: el item no existe");			
+		}
+		return borrado;		
+	}
+	
+	/* Recibe un item del carrito y calcula el subtotal*/
+	public float calcularSubTotal(ItemCarrito i){
+		float sub;
+		sub = i.getProducto().getPrecio()*i.getCantidad();
+		
+		return sub;
+	}
+	
+	public float calcularTotal (){
+		float total = 0;
+		for (ItemCarrito i: lstItem){
+			total = total + this.calcularSubTotal(i);
+		}
+		
+		return total;
+		
 	}
 
 }

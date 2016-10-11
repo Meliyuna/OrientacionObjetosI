@@ -46,4 +46,25 @@ public class Supermercado {
 		}
 		return prod;
 	}
+	
+	public boolean modificarProducto (Producto producto) throws Exception{
+		boolean modif = true;
+		Producto p = traerProducto(producto.getIdProducto());
+		if (p != null){
+			p.setProducto(producto.getProducto());
+			p.setPrecio(producto.getPrecio());
+			return modif;
+		}
+		else throw new Exception ("Error: no se hallo el producto");
+	}
+	
+	public boolean eliminarProducto(Producto producto){
+		boolean borrado = false;
+		for (Producto p: gondola){
+			if (p == producto){
+				borrado = gondola.remove(p);
+			}
+		}
+		return borrado;
+	}
 }
