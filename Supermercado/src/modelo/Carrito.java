@@ -9,11 +9,21 @@ public class Carrito {
 	private int idCarrito;
 	private GregorianCalendar fechaHora;
 	private List<ItemCarrito> lstItem;
+	private Cliente cliente;
 
-	public Carrito(int idCarrito, GregorianCalendar fechaHora) {
+	public Carrito(int idCarrito, GregorianCalendar fechaHora, Cliente cliente) {
 		this.idCarrito = idCarrito;
 		this.fechaHora = fechaHora;
 		this.lstItem = new ArrayList<ItemCarrito>();
+		this.cliente = cliente;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
 	public int getIdCarrito() {
@@ -99,6 +109,15 @@ public class Carrito {
 		
 		return total;
 		
+	}
+	
+	public float calcularTotal (Cliente cliente) throws Exception {
+		float total = 0;
+		if (cliente != this.getCliente()){
+			total = this.calcularTotal();
+		}
+		else throw new Exception ("Error: El cliente no existe ");
+		return total;
 	}
 
 }
