@@ -1,0 +1,52 @@
+package modelo;
+
+import java.util.List;
+import java.util.ArrayList;
+
+public class Recorrido {
+	
+	private int idRecorrido;
+	private String designacion;
+	private Conductor conductor;
+	private List<Posicion> lstPosiciones;
+	
+	//CONSTRUCTOR
+	public Recorrido(int idRecorrido, String designacion, Conductor conductor) {
+		this.idRecorrido = idRecorrido;
+		this.designacion = designacion;
+		this.conductor = conductor;
+		this.lstPosiciones = new ArrayList<Posicion>();
+	}
+	
+	//GETTERS Y SETTERS
+	public int getIdRecorrido() {
+		return idRecorrido;
+	}
+
+	public void setIdRecorrido(int idRecorrido) {
+		this.idRecorrido = idRecorrido;
+	}
+
+	public String getDesignacion() {
+		return designacion;
+	}
+
+	public void setDesignacion(String designacion) {
+		this.designacion = designacion;
+	}
+
+	public Conductor getConductor() {
+		return conductor;
+	}
+
+	public void setConductor(Conductor conductor) {
+		this.conductor = conductor;
+	}
+
+	public List<Posicion> getLstPosiciones() {
+		return lstPosiciones;
+	}
+	
+	
+
+}

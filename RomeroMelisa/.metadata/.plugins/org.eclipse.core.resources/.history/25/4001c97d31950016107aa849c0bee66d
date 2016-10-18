@@ -1,0 +1,23 @@
+package modelo;
+
+import java.util.List;
+import java.util.ArrayList;
+
+public class Recorrido {
+	
+	private int idRecorrido;
+	private String designacion;
+	private Conductor conductor;
+	private List<Posicion> lstPosiciones;
+	
+	public Recorrido(int idRecorrido, String designacion, Conductor conductor) {
+		super();
+		this.idRecorrido = idRecorrido;
+		this.designacion = designacion;
+		this.conductor = conductor;
+		this.lstPosiciones = new ArrayList<Posicion>();
+	}
+	
+	
+
+}

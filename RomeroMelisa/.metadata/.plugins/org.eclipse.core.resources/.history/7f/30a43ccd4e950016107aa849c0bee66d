@@ -1,0 +1,87 @@
+package test;
+
+import modelo.Conductor;
+import modelo.Funciones;
+import modelo.Posicion;
+import modelo.Recorrido;
+import modelo.Vehiculo;
+
+import java.util.Date;
+import java.util.GregorianCalendar;
+
+public class Test1 {
+
+	
+	@SuppressWarnings("deprecation")
+	public static void main(String[] args) {
+		
+		GregorianCalendar fecha = new GregorianCalendar();
+		Date hora = new Date();
+		Conductor chofer = new Conductor (1,"Otto Mann", "20111111112");
+		
+		  hora.setTime(6*3600*1000);
+		  fecha = Funciones.traerFecha(2016, 10, 17);
+		  fecha.setTime(hora);
+		  Posicion pos1 = new Posicion (1, -0.603736, -1.0188273, 200, fecha);
+		  hora.setTime((long)6.3*3600*1000);
+		  fecha.setTime(hora);
+		  Posicion pos2 = new Posicion (2, -0.6070134, -1.0150271, 189, fecha);
+		  hora.setTime(7*3600*1000);
+		  fecha.setTime(hora);
+		  Posicion pos3 = new Posicion (3, -0.6126519, -1.0134622, 179, fecha);
+		  hora.setTime((long)7.3*3600*1000);		  
+		  fecha.setTime(hora);
+		  Posicion pos4 = new Posicion (4, -0.6213211, -1.0118181, 168, fecha);
+		  hora.setTime(8*3600*1000);
+		  fecha.setTime(hora);
+		  Posicion pos5 = new Posicion (5, -0.6286569, -1.0094455, 158, fecha);
+		  hora.setTime((long)8.3*3600*1000);
+		  fecha.setTime(hora);
+		  Posicion pos6 = new Posicion (6, -0.6363466, -1.0074885, 147, fecha);
+		  hora.setTime(9*3600*1000);
+		  Posicion pos7 = new Posicion (7, -0.6418797, -1.0089175, 136, fecha);	 
+		  hora.setTime((long)9.3*3600*1000);
+		  fecha.setTime(hora);
+		  Posicion pos8 = new Posicion (8, -0.6503709, -1.0084852, 126, fecha);
+		  
+		  Posicion[] arrayPosicion = {pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8};
+		  Recorrido rec1 = new Recorrido (1, "Buenos Aires - Mar del Plata", chofer);
+		  
+		  Vehiculo coche1 = new Vehiculo (1, "ABC123");
+		  
+		  
+		  System.out.println ("Crear Posicion con latitud incorrecta:");
+		  try{			  
+			  Posicion pos10 = new Posicion (10, -1.9286569, -1.0094455, 158, fecha);
+			  rec1.agregarPosicion(pos10);
+		  } catch (Exception e){
+			  		System.out.println (e.getMessage());
+		  }
+		  
+		  System.out.println ("Crear Posicion con longitud incorrecta:");
+		  try{			  
+			  Posicion pos10 = new Posicion (10, -0.6286569, -4.0094455, 158, fecha);
+			  rec1.agregarPosicion(pos10);
+		  } catch (Exception e){
+			  		System.out.println (e.getMessage());
+		  }
+		  
+		  System.out.println ("Crear Posicion con los siguientes datos y mostrarla");
+		  hora.setTime(8*3600*1000);
+		  fecha.setTime(hora);
+		  Posicion pos11 = new Posicion (11, -0.686569, -1.0094455, 158, fecha);
+		  try{			  
+			  
+			  rec1.agregarPosicion(pos11);
+		  } catch (Exception e){
+			  		System.out.println (e.getMessage());
+		  }
+		  System.out.println (pos11);
+		
+
+		
+		
+
+	}
+
+}

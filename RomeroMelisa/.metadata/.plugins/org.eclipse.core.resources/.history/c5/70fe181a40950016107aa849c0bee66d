@@ -1,0 +1,88 @@
+package modelo;
+
+import java.util.List;
+import java.util.ArrayList;
+import modelo.Funciones;
+import java.util.GregorianCalendar;
+import modelo.Posicion;
+
+public class Vehiculo {
+	private int idVehiculo;
+	private String dominio;
+	private List<Recorrido> lstRecorridos;
+	
+	
+	//CONSTRUCTOR
+	public Vehiculo(int idVehiculo, String dominio) {
+		
+		this.idVehiculo = idVehiculo;
+		this.dominio = dominio;
+		this.lstRecorridos = new ArrayList<Recorrido>();
+	}
+
+	
+	//GETTERS Y SETTERS
+	public int getIdVehiculo() {
+		return idVehiculo;
+	}
+
+
+	public void setIdVehiculo(int idVehiculo) {
+		this.idVehiculo = idVehiculo;
+	}
+
+
+	public String getDominio() {
+		return dominio;
+	}
+
+
+	public void setDominio(String dominio) {
+		this.dominio = dominio;
+	}
+
+
+	public List<Recorrido> getLstRecorridos() {
+		return lstRecorridos;
+	}
+
+
+	public void setLstRecorridos(List<Recorrido> lstRecorridos) {
+		this.lstRecorridos = lstRecorridos;
+	}
+	
+	public boolean esDominioValido (String dominio) throws Exception{
+		
+		String str1 = dominio.substring(0, 3);
+		String str2 = dominio.substring(4, 7);
+
+		if (Funciones.esCadenaLetras(str1) && Funciones.esCadenaNumeros(str2))
+			return true;
+		else
+			throw new Exception("Error: El dominio "+ dominio+ " no es valido");
+	}
+	
+	//Traer Recorrido por el ID
+	public Recorrido traerRecorrido(int idRecorrido){
+		Recorrido rec = null;
+		
+		for (Recorrido r: lstRecorridos){
+			if (r.getIdRecorrido()== idRecorrido)
+				rec = r;
+		}		
+		return rec;
+	}
+
+	public Recorrido traerRecorrido (GregorianCalendar fechaHoraInicio){
+		Recorrido rec = null;
+		for (Recorrido r: lstRecorridos){			
+			for (Posicion p: r.getLstPosiciones()){
+				if (p.getFechaHora()==fechaHoraInicio){
+					rec = r;
+				}
+			}			
+		}
+		return rec;
+	}
+
+}
