@@ -95,6 +95,15 @@ public class TestFunciones {
 		System.out.print("Es cadena de letras: ");
 		System.out.println(Funciones.esCadenaLetras(str));
 		
+		/* Cargar fecha y hora en GregorianCalendar */
+		String fech, hora;
+		fech = "18/10/2016";
+		hora = "17:40:05";
+		
+		System.out.println("Traer calendario gregoriano con fecha y hora seteados");
+		System.out.print(Funciones.traerFechaHora(fech, hora));
+		
+		
 	
 	}
 }

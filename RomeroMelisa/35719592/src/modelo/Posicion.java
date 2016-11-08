@@ -15,7 +15,18 @@ public class Posicion {
 			int estadoCombustible, GregorianCalendar fechaHora) {
 
 		this.idPosicion = idPosicion;
-		this.latitud = latitud;
+		try {
+			this.setLatitud(latitud);
+		}
+		catch (Exception e){
+			System.out.println(e.getMessage());
+		}
+		try {
+			this.setLongitud(longitud);;
+		}
+		catch (Exception e){
+			System.out.println(e.getMessage());
+		}
 		this.longitud = longitud;
 		this.estadoCombustible = estadoCombustible;
 		this.fechaHora = fechaHora;
@@ -31,20 +42,25 @@ public class Posicion {
 		this.idPosicion = idPosicion;
 	}
 
-	public double getLatitud() {
+	public double getLatitud(){
+		
 		return latitud;
 	}
 
-	public void setLatitud(double latitud) {
-		this.latitud = latitud;
+	public void setLatitud(double latitud)  throws Exception{
+		if (this.esLatitudValida(latitud))
+			this.latitud = latitud;
+		else throw new Exception ("Error: La latitud "+latitud+" no es valida" );
 	}
 
 	public double getLongitud() {
 		return longitud;
 	}
 
-	public void setLongitud(double longitud) {
-		this.longitud = longitud;
+	public void setLongitud(double longitud) throws Exception{
+		if (this.esLongitudValida(longitud))
+			this.longitud = longitud;
+		else throw new Exception ("Error: La longitud " +longitud+ " no es valida");
 	}
 
 	public int getEstadoCombustible() {
@@ -76,7 +92,7 @@ public class Posicion {
 	public boolean esLatitudValida(double latitud) {
 		boolean valido = true;
 
-		if ((longitud > -(Math.PI / 2)) && (longitud < (Math.PI / 2))) {
+		if ((latitud > -(Math.PI / 2)) && (latitud < (Math.PI / 2))) {
 			return valido;
 		} else
 			return !valido;

@@ -71,7 +71,7 @@ public class Recorrido {
 	}
 	
 	
-	public boolean agregarPosicion (Posicion posicion)throws Exception{
+	public boolean agregarPosicion (Posicion posicion){
 		boolean agregar = false;
 		boolean lat = posicion.esLatitudValida(posicion.getLatitud());
 		boolean lon = posicion.esLongitudValida(posicion.getLongitud());
@@ -80,8 +80,7 @@ public class Recorrido {
 			lstPosiciones.add(posicion);
 			agregar = true;
 		}
-		else if (!lat) throw new Exception("Error: el valor "+posicion.getLatitud()+" no es valido para la latitud");
-		else if (!lon) throw new Exception("Error: el valor "+posicion.getLongitud()+" no es valido para la longitud"); 
+		
 		return agregar;
 	}
 	

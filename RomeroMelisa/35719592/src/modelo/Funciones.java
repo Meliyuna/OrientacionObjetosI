@@ -72,7 +72,8 @@ public class Funciones {
 			fecha = new GregorianCalendar(anio, mes - 1, dia);
 		return fecha;
 	}
-
+	
+	
 	// FECHA (STRING)
 	public static GregorianCalendar traerFecha(String fecha) {
 
@@ -91,6 +92,29 @@ public class Funciones {
 		return fecha1;
 
 	}
+	
+	//FECHA CORTA Y HORA EN FORMATO GREGORIAN CALENDAR
+	public static GregorianCalendar traerFechaHora (String fecha, String hora){
+		
+		GregorianCalendar fecha1 = new GregorianCalendar();
+		int anio, mes, dia, horas, minutos, segundos;
+		
+		dia = Integer.parseInt(fecha.substring(0, 2));
+
+		mes = Integer.parseInt(fecha.substring(3, 5));
+
+		anio = Integer.parseInt(fecha.substring(6, 10));
+
+		horas = Integer.parseInt(hora.substring(0, 2));
+		minutos = Integer.parseInt(hora.substring(3, 5));
+		segundos = Integer.parseInt(hora.substring(6, 8));
+		
+		fecha1.set(anio, mes, dia, horas, minutos, segundos);
+		
+		return fecha1;	
+		
+	}
+
 
 	// FECHA CORTA
 	public static String traerFechaCorta(GregorianCalendar fecha) {
@@ -114,11 +138,11 @@ public class Funciones {
 		String fechahora;
 		String horas, min, seg;
 
-		horas = String.valueOf(fecha.get(Calendar.HOUR));
+		horas = String.valueOf(fecha.get(Calendar.HOUR_OF_DAY));
 		min = String.valueOf(fecha.get(Calendar.MINUTE));
 		seg = String.valueOf(fecha.get(Calendar.SECOND));
 
-		fechahora = traerFechaCorta(fecha) + " " + horas + ":" + min + ":" + seg;
+		fechahora = traerFechaCorta(fecha) + "-" + horas + ":" + min + ":" + seg;
 
 		return fechahora;
 
